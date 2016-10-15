@@ -210,7 +210,7 @@ static void transform_rgb_to_draw(unsigned char* input_row,
     }
 }
 
-int res_create_surface(const char* name, gr_surface* pSurface) {
+int res_create_display_surface(const char* name, gr_surface* pSurface) {
     GGLSurface* surface = NULL;
     int result = 0;
     png_structp png_ptr = NULL;

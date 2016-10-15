@@ -59,19 +59,19 @@ void Resource::LoadImage(ZipArchive* pZip, std::string file, gr_surface* surface
 	int rc = 0;
 	if (ExtractResource(pZip, "images", file, ".png", TMP_RESOURCE_NAME) == 0)
 	{
-		rc = res_create_surface(TMP_RESOURCE_NAME, surface);
+		rc = res_create_display_surface(TMP_RESOURCE_NAME, surface);
 		unlink(TMP_RESOURCE_NAME);
 	}
 	else if (ExtractResource(pZip, "images", file, "", TMP_RESOURCE_NAME) == 0)
 	{
 		// JPG includes the .jpg extension in the filename so extension should be blank
-		rc = res_create_surface(TMP_RESOURCE_NAME, surface);
+		rc = res_create_display_surface(TMP_RESOURCE_NAME, surface);
 		unlink(TMP_RESOURCE_NAME);
 	}
 	else if (!pZip)
 	{
 		// File name in xml may have included .png so try without adding .png
-		rc = res_create_surface(file.c_str(), surface);
+		rc = res_create_display_surface(file.c_str(), surface);
 	}
 	if (rc != 0)
 		LOGINFO("Failed to load image from %s%s, error %d\n", file.c_str(), pZip ? " (zip)" : "", rc);

@@ -193,7 +193,7 @@ int ev_get_epollfd(void);
 // Resources
 
 // Returns 0 if no error, else negative.
-int res_create_surface(const char* name, gr_surface* pSurface);
+int res_create_display_surface(const char* name, gr_surface* pSurface);
 
 // Load an array of display surfaces from a single PNG image.  The PNG
 // should have a 'Frames' text chunk whose value is the number of
@@ -205,7 +205,7 @@ int res_create_multi_display_surface(const char* name,
 int res_create_localized_surface(const char* name, gr_surface* pSurface);
 void res_free_surface(gr_surface surface);
 static inline int res_create_display_surface(const char* name, gr_surface* pSurface) {
-    return res_create_surface(name, pSurface);
+    return res_create_display_surface(name, pSurface);
 }
 
 // These are new graphics functions from 5.0 that were not available in
