@@ -353,7 +353,7 @@ exit:
 }
 #endif
 
-int res_create_surface(const char* name, gr_surface* pSurface) {
+int res_create_display_surface(const char* name, gr_surface* pSurface) {
     int ret;
 
     if (!name)      return -1;
